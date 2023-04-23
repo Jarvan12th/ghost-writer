@@ -7,7 +7,7 @@ interface Props {
 function Selector({ topic, elements, handleChange }: Props) {
   return (
     <select
-      className="form-select"
+      className="mx-1"
       aria-label="Default select example"
       onChange={(e) => handleChange(topic, e.target.value)}
     >

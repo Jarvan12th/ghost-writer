@@ -6,12 +6,15 @@ interface Props {
 
 function InputPanel({ handleTextChange }: Props) {
   return (
-    <div className="panel panel-default">
-      <div className="panel-body">
+    <div>
+      <div>
         <textarea
-          className="form-control"
+          rows={10}
+          cols={120}
           placeholder="Enter text here"
-          onMouseLeave={(e:  BaseSyntheticEvent) => handleTextChange(e.target.value)}
+          onMouseLeave={(e: BaseSyntheticEvent) =>
+            handleTextChange(e.target.value)
+          }
         ></textarea>
       </div>
     </div>

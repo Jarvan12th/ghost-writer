@@ -5,7 +5,13 @@ const actionElements = ["Translate", "Proofread", "Summarize", "Brainstorm"];
 
 const languageElements = ["English", "Chinese"];
 
-const toneElements = ["professional", "joyful"];
+const toneElements = [
+  "general",
+  "positive",
+  "negative",
+  "professional",
+  "joyful",
+];
 
 interface Props {
   handleInstructionChange: (instruction: string) => void;
@@ -31,18 +37,13 @@ function Options({ handleInstructionChange }: Props) {
 
   useEffect(() => {
     handleInstructionChange(
-      action +
-        " the following text into " +
-        language +
-        " in the " +
-        tone +
-        " tone"
+      action + " the above text into " + language + " in the " + tone + " tone."
     ),
       [];
   });
 
   return (
-    <div>
+    <div className="mx-6">
       <Selector
         topic="action"
         elements={actionElements}

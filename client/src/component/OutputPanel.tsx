@@ -1,35 +1,39 @@
+import { useRef } from "react";
+
 interface Props {
   result: string;
 }
 
 function OutputPanel({ result }: Props) {
+  const outputTextAreaRef = useRef<HTMLTextAreaElement>(null);
   const handleCopy = () => {
-    const textarea = document.querySelector("textarea");
-    if (textarea) {
-      textarea.select();
-      navigator.clipboard.writeText(textarea.value).then(
-        function () {
-          console.log("Text copied to clipboard");
-        },
-        function () {
-          console.log("Copy failed");
-        }
-      );
-    }
+    const textarea = outputTextAreaRef.current;
+    if (!textarea) return;
+    navigator.clipboard.writeText(textarea.value).then(
+      function () {
+        console.log("Text copied to clipboard");
+      },
+      function () {
+        console.log("Copy failed");
+      }
+    );
   };
   return (
-    <div className="panel panel-default">
-      <div className="panel-body">
+    <div>
+      <div>
         <textarea
-          className="form-control"
+          id="output-textarea"
+          rows={10}
+          cols={120}
           defaultValue={result}
+          ref={outputTextAreaRef}
         ></textarea>
         <button
           type="button"
-          className="btn btn-default copy-btn"
+          className="btn btn-secondary"
           onClick={handleCopy}
         >
-          <i className="fa fa-copy"></i>
+          Copy
         </button>
       </div>
     </div>

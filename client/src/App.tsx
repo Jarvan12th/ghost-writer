@@ -38,12 +38,26 @@ function App() {
 
   return (
     <div>
-      <Options handleInstructionChange={handleInstructionChange} />
-      <button type="button" className="btn" onClick={sendPrompt}>
-        Send
-      </button>
-      <InputPanel handleTextChange={handleTextChange}></InputPanel>
-      <OutputPanel result={result}></OutputPanel>
+      <div>
+        <div className="my-3">
+          <Options handleInstructionChange={handleInstructionChange} />
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary my-1"
+          onClick={sendPrompt}
+        >
+          Send
+        </button>
+      </div>
+      <div className="my-2">
+        <h4>Input</h4>
+        <InputPanel handleTextChange={handleTextChange}></InputPanel>
+      </div>
+      <div className="my-2">
+        <h4>Output</h4>
+        <OutputPanel result={result}></OutputPanel>
+      </div>
     </div>
   );
 }
