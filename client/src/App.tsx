@@ -29,7 +29,7 @@ function App() {
     const prompt = "```" + text + "``` " + instruction;
     console.log(prompt);
 
-    submitMessage([{ content: prompt, role: ChatRole.USER }]);
+    submitMessage([{ content: JSON.stringify(prompt), role: ChatRole.USER }]);
   };
 
   useEffect(() => {
